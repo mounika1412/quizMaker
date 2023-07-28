@@ -3,7 +3,7 @@ import { HttpClient }  from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Category, MainCategory } from '../models/category';
 import { questionAnswers, questionsList } from '../models/questions';
-import {QuizMakerConstants} from '../constants/quiz-maker.constant';
+import { QuizMakerConstants } from '../constants/quiz-maker.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +16,12 @@ export class QuizService {
   constructor(private http: HttpClient) { }
 
   getCategories(): Observable<MainCategory<Category[]>>{
-    const url = this.baseUrl+`api_category.php`;
+    const url :string = this.baseUrl+`api_category.php`;
     return this.http.get<MainCategory<Category[]>>(url)
   }
 
   getQuestionsList(amount:number , category:string, difficulty: string, type: string) : Observable<questionAnswers>{
-    const url = this.baseUrl+`api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
+    const url:string = this.baseUrl+`api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
     return this.http.get<questionAnswers>(url)
   }
 
@@ -33,7 +33,6 @@ export class QuizService {
     return this.quizResult;
   }
 
-  
   showResults(showResults :boolean){
     this.showresults = showResults;
   }

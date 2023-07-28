@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { QuizService } from '../../services/quiz.service';
-import { Category, MainCategory } from '../../models/category';
+import { Category, MainCategory, difficultyLevel} from '../../models/category';
 import { questionAnswers } from '../../models/questions';
 import { QuizMakerConstants } from '../../constants/quiz-maker.constant';
 import { Subscription } from 'rxjs';
@@ -20,7 +20,7 @@ export class CreateNewQuizComponent implements OnInit, OnDestroy {
   type = QuizMakerConstants.TYPE;
   subscription: Subscription = new Subscription();
 
-  difficultyLevels = [
+  difficultyLevels : difficultyLevel[] = [
     { name: 'Select Difficulty', level: '' },
     { name: 'Easy', level: 'easy' },
     { name: 'Medium', level: 'medium' },
@@ -37,8 +37,8 @@ export class CreateNewQuizComponent implements OnInit, OnDestroy {
   })
 
   ngOnInit(): void {
-    //to get categories 
     this.spinner.show();
+    //to get categories 
     this.subscription = this.quizService.getCategories().subscribe((res: MainCategory<Category[]>) => {
       this.categoryList = res;
     this.spinner.hide();
@@ -68,12 +68,9 @@ export class CreateNewQuizComponent implements OnInit, OnDestroy {
           for (const [key, value] of option.incorrect_answers.entries()) {
             option.incorrect_answers[key] = decode(value);
           }
-
         }
-
         this.spinner.hide();
       })
-
   }
 
   ngOnDestroy(): void {

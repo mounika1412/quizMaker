@@ -1,10 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { questionsList} from '../../models/questions';
-import { decode } from 'html-entities';
 import { QuizMakerConstants } from '../../constants/quiz-maker.constant';
 import { QuizService } from '../../services/quiz.service';
 import { Router } from '@angular/router'
-
 
 @Component({
   selector: 'app-questions',
@@ -16,10 +14,7 @@ export class QuestionsComponent {
   noOfQuestions = QuizMakerConstants.AMOUNT;
   showSubmitButton : boolean = false;
   quizResult: questionsList[] = [];
-  correctAnswerCount = 0;
-  color: string ='';
   showResults : boolean = false;
-  totalQuestions = QuizMakerConstants.AMOUNT;
   
   constructor(private quizService: QuizService,
               private router: Router) { }
@@ -47,7 +42,6 @@ export class QuestionsComponent {
     else {
       this.showSubmitButton = false;
     }
-
   }
 
   submitQuiz(): void{

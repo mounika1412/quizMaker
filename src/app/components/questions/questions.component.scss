@@ -1,7 +1,7 @@
 .questionsResultPage{
     margin: auto;
     text-align: center;
-    width: 65%;
+    width: 50%;
     padding: 3% 2%;
 }
 .question-options{
@@ -17,8 +17,8 @@
 }
 .option-button{
     background-color: transparent;
-    color: green;
-    border-color: green;
+    color: #008000;
+    border-color: #008000;
     margin-bottom: 8px;
     margin-right: 8px;
     padding: 3px 6px;
@@ -26,7 +26,7 @@
     
 }
 .option-button:hover{
-    background-color: green;
+    background-color: #008000;
     color: #ffffff;
 }
 .selected-option{
@@ -49,6 +49,6 @@
 }
 .correct-answer{
     background-color: #008000;
-    color:white;
+    color:#ffffff;
     border-color: #008000;
 }

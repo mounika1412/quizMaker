@@ -11,8 +11,7 @@ import { Router } from '@angular/router';
 })
 export class QuizResultComponent {
   quizResult: questionsList[] = [];
-  correctAnswerCount = 0;
-  color:string = '';
+  correctAnswerCount : number = 0;
   totalQuestions = QuizMakerConstants.AMOUNT;
 
   constructor(private quizService: QuizService,
