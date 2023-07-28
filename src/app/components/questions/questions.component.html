@@ -15,7 +15,7 @@
             </div>
 
             <div *ngIf="showResults" class="option-list">
-                <button *ngFor="let option of question?.incorrect_answers;let i = index" class="btn option-button"
+                <button *ngFor="let option of question?.incorrect_answers;let i = index" class="btn option-button-resultpage"
                     [ngClass]="{'correct-answer':option == question.correct_answer, 'incorrect-answer':option == question.selectedAnswer}">
                     {{option}}</button>
 
